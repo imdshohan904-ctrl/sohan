@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medical Admission | Question Bank</title>  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+    body{
+      min-height:100vh;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    /* Fixed background */
+    .bg-fixed{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+                  url('medical.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 40px;
+      background:rgba(0,0,0,0.4);
+      position:relative;
+    }
+
+    header h1{
+      font-size:28px;
+      font-weight:700;
+      background: linear-gradient(90deg,#00e5ff,#ffeb3b,#ff4081,#7cff00);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .dev-tag{
+      position:absolute;
+      top:8px;
+      right:15px;
+      font-size:14px;
+      opacity:0.9;
+      font-weight:700;
+      color:#ffffff;
+      text-shadow:0 0 8px #00ff99;
+    }
+
+    .hero{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      height:80vh;
+      padding:20px;
+    }
+
+    .hero h2{
+      font-size:46px;
+      font-weight:700;
+      margin-bottom:20px;
+      background: linear-gradient(90deg,#ff5252,#ffeb3b,#69f0ae,#40c4ff,#e040fb);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow{
+      from{filter:drop-shadow(0 0 5px #fff);} 
+      to{filter:drop-shadow(0 0 25px #00e5ff);} 
+    }
+
+    .marquee{
+      width:100%;
+      overflow:hidden;
+      white-space:nowrap;
+      background:rgba(0,0,0,0.5);
+      padding:15px 0;
+      margin-top:20px;
+    }
+
+    .marquee span{
+      display:inline-block;
+      padding-left:100%;
+      animation: scroll 15s linear infinite;
+      font-size:22px;
+      font-weight:600;
+      background: linear-gradient(90deg,#ff1744,#ff9100,#ffee58,#00e676,#2979ff,#d500f9);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    @keyframes scroll{
+      0%{ transform:translateX(0); }
+      100%{ transform:translateX(-100%); }
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+      padding:50px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border-radius:20px;
+      padding:30px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%{ transform:translateY(0); }
+      50%{ transform:translateY(-10px); }
+      100%{ transform:translateY(0); }
+    }
+
+    .card h3{
+      font-size:24px;
+      margin-bottom:15px;
+      background: linear-gradient(90deg,#00e5ff,#ff4081,#7cff00,#ffeb3b);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .card a{
+      display:inline-block;
+      margin-top:10px;
+      font-weight:600;
+      text-decoration:none;
+      background: linear-gradient(90deg,#00e5ff,#ff4081,#ffeb3b);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      background:rgba(0,0,0,0.6);
+      font-size:14px;
+    }
+
+    @media(max-width:600px){
+      .hero h2{ font-size:32px; }
+      header h1{ font-size:22px; }
+    }
+  </style></head>
+<body>  <div class="bg-fixed"></div>  <header>
+    <h1>Medical Question Bank</h1>
+    <div class="dev-tag">💎 Developed by <b>SHOHAN ISLAM (HSC-25)</b></div>
+  </header>  <section class="hero">
+    <h2>Welcome Future Doctor 🩺</h2>
+    <div class="marquee">
+      <span>✨ Best of Luck for Medical Admission | You Will Be a Future Doctor | Dream Big • Work Hard • Never Give Up ✨</span>
+    </div>
+  </section>  <section class="cards">
+    <div class="card">
+      <h3>🔥 Medical Preparation</h3>
+      <p>Carefully selected medical admission questions to boost your confidence and performance.</p>
+    </div><div class="card">
+  <h3>📘 Physics Question Bank</h3>
+  <a href="physics.pdf" target="_blank">Download PDF</a>
+</div>
+
+<div class="card">
+  <h3>🧪 Chemistry Question Bank</h3>
+  <a href="chemistry.pdf" target="_blank">Download PDF</a>
+</div>
+
+<div class="card">
+  <h3>🧬 Biology Question Bank</h3>
+  <a href="biology.pdf" target="_blank">Download PDF</a>
+</div>
+
+<div class="card">
+  <h3>📐 Math Question Bank</h3>
+  <a href="math.pdf" target="_blank">Download PDF</a>
+</div>
+
+<div class="card">
+  <h3>🌍 GK Question Bank</h3>
+  <a href="gk.pdf" target="_blank">Download PDF</a>
+</div>
+
+  </section>  <footer>
+    © 2025 Medical Admission | Designed & Developed by <b>SHOHAN ISLAM (HSC-25)</b>
+  </footer></body>
+</html>
