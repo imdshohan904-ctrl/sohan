@@ -1,199 +1,110 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Medical Admission | Question Bank</title>  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Admission Portal | Developed by Shohan</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    body{
-      min-height:100vh;
-      color:#fff;
-      overflow-x:hidden;
-    }
+<style>
+:root{
+--glass:rgba(255,255,255,0.12);
+--blue:#00ffd7;
+--pink:#ff4d9b;
+--gold:#ffe066;
+}
 
-    /* Fixed background */
-    .bg-fixed{
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
-                  url('medical.jpg');
-      background-size: cover;
-      background-position: center;
-      z-index: -1;
-    }
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#02030a;color:white;overflow-x:hidden;}
 
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:20px 40px;
-      background:rgba(0,0,0,0.4);
-      position:relative;
-    }
+/* Background */
+.bg{position:fixed;width:100%;height:100%;background:url('medicalbg.jpg');background-size:cover;background-position:center;filter:brightness(35%);z-index:-1;}
+.overlay{position:fixed;width:100%;height:100%;background:linear-gradient(#000000aa,#000000ef);z-index:-1;}
 
-    header h1{
-      font-size:28px;
-      font-weight:700;
-      background: linear-gradient(90deg,#00e5ff,#ffeb3b,#ff4081,#7cff00);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+/* Nav */
+nav{width:100%;padding:22px 70px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);}
+nav h2{font-size:27px;font-weight:700;color:#47e0c5;letter-spacing:2px;}
+nav ul{display:flex;gap:35px;list-style:none;}
+nav ul li a{text-decoration:none;font-weight:500;color:#fff;transition:0.3s;}
+nav ul li a:hover{color:#47e0c5;}
 
-    .dev-tag{
-      position:absolute;
-      top:8px;
-      right:15px;
-      font-size:14px;
-      opacity:0.9;
-      font-weight:700;
-      color:#ffffff;
-      text-shadow:0 0 8px #00ff99;
-    }
+/* Hero */
+.hero{height:85vh;display:flex;flex-direction:column;justify-content:center;padding-left:120px;}
+.hero h1{font-size:60px;font-weight:700;width:60%;line-height:1.1;background:linear-gradient(90deg,#00ffd7,#00e5ff,#00ff73,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{margin-top:25px;font-size:22px;width:50%;opacity:0.9;}
+.btn{margin-top:35px;padding:15px 40px;border-radius:35px;font-size:18px;font-weight:600;border:none;cursor:pointer;background:#00ffd7;color:#000;text-decoration:none;transition:0.3s;}
+.btn:hover{transform:scale(1.06);}
 
-    .hero{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      height:80vh;
-      padding:20px;
-    }
+/* Section */
+.section{padding:120px 70px;background:#05080f;}
+.section h2{text-align:center;margin-bottom:60px;font-size:40px;font-weight:700;letter-spacing:1px;color:#47e0c5;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;}
+.card{background:var(--glass);backdrop-filter:blur(15px);padding:35px;border-radius:25px;transition:0.3s;cursor:pointer;border:1px solid rgba(255,255,255,0.1);}
+.card:hover{transform:translateY(-10px);box-shadow:0 0 25px rgba(255,255,255,0.25);}
+.card h3{font-size:25px;margin-bottom:15px;background:linear-gradient(90deg,#00ffd7,#ff4d9b,#ffe066);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.card p{font-size:15px;opacity:0.7;}
+.card a{display:block;margin-top:15px;padding:14px;border-radius:12px;text-decoration:none;color:white;font-size:17px;background:rgba(255,255,255,0.15);transition:.3s;backdrop-filter:blur(10px);}
+.card a:hover{transform:scale(1.05);background:rgba(255,255,255,0.3);}
 
-    .hero h2{
-      font-size:46px;
-      font-weight:700;
-      margin-bottom:20px;
-      background: linear-gradient(90deg,#ff5252,#ffeb3b,#69f0ae,#40c4ff,#e040fb);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      animation: glow 2s infinite alternate;
-    }
+/* Footer */
+footer{margin-top:120px;padding:25px;text-align:center;font-size:15px;background:#000;}
+footer span{color:#47e0c5;font-weight:600;letter-spacing:1px;}
 
-    @keyframes glow{
-      from{filter:drop-shadow(0 0 5px #fff);} 
-      to{filter:drop-shadow(0 0 25px #00e5ff);} 
-    }
+@media(max-width:600px){.hero h1{font-size:36px;}nav h2{font-size:20px;}}
+</style>
+</head>
 
-    .marquee{
-      width:100%;
-      overflow:hidden;
-      white-space:nowrap;
-      background:rgba(0,0,0,0.5);
-      padding:15px 0;
-      margin-top:20px;
-    }
+<body>
+<div class="bg"></div>
+<div class="overlay"></div>
 
-    .marquee span{
-      display:inline-block;
-      padding-left:100%;
-      animation: scroll 15s linear infinite;
-      font-size:22px;
-      font-weight:600;
-      background: linear-gradient(90deg,#ff1744,#ff9100,#ffee58,#00e676,#2979ff,#d500f9);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+<nav>
+<h2>Medical Admission Portal</h2>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#cards">All PDFs</a></li>
+<li><a href="#login">Login</a></li>
+</ul>
+</nav>
 
-    @keyframes scroll{
-      0%{ transform:translateX(0); }
-      100%{ transform:translateX(-100%); }
-    }
+<section class="hero">
+<h1>Ultimate Medical Admission Collection</h1>
+<p>All subjects, notes, PDFs, model tests, previous years solved in one place. Ready-to-use portal for serious students.</p>
+<a class="btn" href="#cards">Explore Now</a>
+</section>
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-      padding:50px;
-    }
-
-    .card{
-      background:rgba(255,255,255,0.12);
-      backdrop-filter: blur(10px);
-      border-radius:20px;
-      padding:30px;
-      text-align:center;
-      box-shadow:0 10px 30px rgba(0,0,0,0.4);
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float{
-      0%{ transform:translateY(0); }
-      50%{ transform:translateY(-10px); }
-      100%{ transform:translateY(0); }
-    }
-
-    .card h3{
-      font-size:24px;
-      margin-bottom:15px;
-      background: linear-gradient(90deg,#00e5ff,#ff4081,#7cff00,#ffeb3b);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    .card a{
-      display:inline-block;
-      margin-top:10px;
-      font-weight:600;
-      text-decoration:none;
-      background: linear-gradient(90deg,#00e5ff,#ff4081,#ffeb3b);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    footer{
-      text-align:center;
-      padding:20px;
-      background:rgba(0,0,0,0.6);
-      font-size:14px;
-    }
-
-    @media(max-width:600px){
-      .hero h2{ font-size:32px; }
-      header h1{ font-size:22px; }
-    }
-  </style></head>
-<body>  <div class="bg-fixed"></div>  <header>
-    <h1>Medical Question Bank</h1>
-    <div class="dev-tag">💎 Developed by <b>SHOHAN ISLAM (HSC-25)</b></div>
-  </header>  <section class="hero">
-    <h2>Welcome Future Doctor 🩺</h2>
-    <div class="marquee">
-      <span>✨ Best of Luck for Medical Admission | You Will Be a Future Doctor | Dream Big • Work Hard • Never Give Up ✨</span>
-    </div>
-  </section>  <section class="cards">
-    <div class="card">
-      <h3>🔥 Medical Preparation</h3>
-      <p>Carefully selected medical admission questions to boost your confidence and performance.</p>
-    </div><div class="card">
-  <h3>📘 Physics Question Bank</h3>
-  <a href="physics.pdf" target="_blank">Download PDF</a>
+<section class="section" id="cards">
+<h2>All PDFs</h2>
+<div class="cards">
+<!-- Example PDF Cards, tumi PDF upload korle replace korte parba -->
+<div class="card"><h3>Physics</h3><a href="pdfs/physics.pdf">Open PDF</a></div>
+<div class="card"><h3>Chemistry</h3><a href="pdfs/chemistry.pdf">Open PDF</a></div>
+<div class="card"><h3>Biology</h3><a href="pdfs/biology.pdf">Open PDF</a></div>
+<div class="card"><h3>Math</h3><a href="pdfs/math.pdf">Open PDF</a></div>
+<div class="card"><h3>GK</h3><a href="pdfs/gk.pdf">Open PDF</a></div>
+<div class="card"><h3>Biology Notes</h3><a href="pdfs/biology_notes.pdf">Open PDF</a></div>
+<div class="card"><h3>Chemistry Notes</h3><a href="pdfs/chemistry_notes.pdf">Open PDF</a></div>
+<div class="card"><h3>Physics Notes</h3><a href="pdfs/physics_notes.pdf">Open PDF</a></div>
+<div class="card"><h3>Model Test 1</h3><a href="pdfs/model_test1.pdf">Open PDF</a></div>
+<div class="card"><h3>Model Test 2</h3><a href="pdfs/model_test2.pdf">Open PDF</a></div>
+<div class="card"><h3>Previous 2010-2015</h3><a href="pdfs/prev_2010_2015.pdf">Open PDF</a></div>
+<div class="card"><h3>Previous 2016-2020</h3><a href="pdfs/prev_2016_2020.pdf">Open PDF</a></div>
+<div class="card"><h3>Previous 2021-2024</h3><a href="pdfs/prev_2021_2024.pdf">Open PDF</a></div>
+<div class="card"><h3>All PDFs Library</h3><a href="pdfs/all_subjects.pdf">Open PDF</a></div>
 </div>
+</section>
 
-<div class="card">
-  <h3>🧪 Chemistry Question Bank</h3>
-  <a href="chemistry.pdf" target="_blank">Download PDF</a>
+<section class="section" id="login">
+<h2>Secure Login Area</h2>
+<div class="cards">
+<div class="card"><h3>Admin / Teacher</h3><a href="pdfs/login.pdf">Open PDF</a></div>
+<div class="card"><h3>Student Access</h3><a href="pdfs/login.pdf">Open PDF</a></div>
 </div>
+</section>
 
-<div class="card">
-  <h3>🧬 Biology Question Bank</h3>
-  <a href="biology.pdf" target="_blank">Download PDF</a>
-</div>
+<footer>
+Developed by <span>SHOHAN ISLAM (HSC-25)</span> © 2025
+</footer>
 
-<div class="card">
-  <h3>📐 Math Question Bank</h3>
-  <a href="math.pdf" target="_blank">Download PDF</a>
-</div>
-
-<div class="card">
-  <h3>🌍 GK Question Bank</h3>
-  <a href="gk.pdf" target="_blank">Download PDF</a>
-</div>
-
-  </section>  <footer>
-    © 2025 Medical Admission | Designed & Developed by <b>SHOHAN ISLAM (HSC-25)</b>
-  </footer></body>
+</body>
 </html>
