@@ -1,110 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Medical Admission Portal | Developed by Shohan</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Add Firebase SDKs in <head> -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
 
-<style>
-:root{
---glass:rgba(255,255,255,0.12);
---blue:#00ffd7;
---pink:#ff4d9b;
---gold:#ffe066;
-}
+<script>
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#02030a;color:white;overflow-x:hidden;}
+  function googleLogin() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+      .then((result) => {
+        alert("Welcome " + result.user.displayName);
+        // Optionally redirect to PDF section
+        window.location.href="#cards";
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+</script>
 
-/* Background */
-.bg{position:fixed;width:100%;height:100%;background:url('medical.jpg');background-size:cover;background-position:center;filter:brightness(35%);z-index:-1;}
-.overlay{position:fixed;width:100%;height:100%;background:linear-gradient(#000000aa,#000000ef);z-index:-1;}
-
-/* Nav */
-nav{width:100%;padding:22px 70px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);}
-nav h2{font-size:27px;font-weight:700;color:#47e0c5;letter-spacing:2px;}
-nav ul{display:flex;gap:35px;list-style:none;}
-nav ul li a{text-decoration:none;font-weight:500;color:#fff;transition:0.3s;}
-nav ul li a:hover{color:#47e0c5;}
-
-/* Hero */
-.hero{height:85vh;display:flex;flex-direction:column;justify-content:center;padding-left:120px;}
-.hero h1{font-size:60px;font-weight:700;width:60%;line-height:1.1;background:linear-gradient(90deg,#00ffd7,#00e5ff,#00ff73,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hero p{margin-top:25px;font-size:22px;width:50%;opacity:0.9;}
-.btn{margin-top:35px;padding:15px 40px;border-radius:35px;font-size:18px;font-weight:600;border:none;cursor:pointer;background:#00ffd7;color:#000;text-decoration:none;transition:0.3s;}
-.btn:hover{transform:scale(1.06);}
-
-/* Sections */
-.section{padding:100px 70px;background:#05080f;}
-.section h2{text-align:center;margin-bottom:60px;font-size:40px;font-weight:700;letter-spacing:1px;color:#47e0c5;}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;}
-.card{background:var(--glass);backdrop-filter:blur(15px);padding:35px;border-radius:25px;transition:0.3s;cursor:pointer;border:1px solid rgba(255,255,255,0.1);}
-.card:hover{transform:translateY(-10px);box-shadow:0 0 25px rgba(255,255,255,0.25);}
-.card h3{font-size:25px;margin-bottom:15px;background:linear-gradient(90deg,#00ffd7,#ff4d9b,#ffe066);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.card p{font-size:15px;opacity:0.7;}
-.card a{display:block;margin-top:15px;padding:14px;border-radius:12px;text-decoration:none;color:white;font-size:17px;background:rgba(255,255,255,0.15);transition:.3s;backdrop-filter:blur(10px);}
-.card a:hover{transform:scale(1.05);background:rgba(255,255,255,0.3);}
-
-/* Login modal */
-.lock{display:flex;justify-content:center;margin-top:50px;}
-.lock-icon{font-size:50px;color:#ff4d9b;animation:lockBounce 1.5s infinite;}
-@keyframes lockBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
-
-/* Footer */
-footer{margin-top:80px;padding:25px;text-align:center;font-size:15px;background:#000;}
-footer span{color:#47e0c5;font-weight:600;letter-spacing:1px;}
-
-@media(max-width:600px){.hero h1{font-size:36px;}nav h2{font-size:20px;}.hero{padding-left:20px;}.section{padding:60px 20px;}}
-</style>
-</head>
-
-<body>
-<div class="bg"></div>
-<div class="overlay"></div>
-
-<nav>
-<h2>Medical Admission Portal</h2>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#cards">All PDFs</a></li>
-<li><a href="#login">Login</a></li>
-</ul>
-</nav>
-
-<section class="hero">
-<h1>Ultimate Medical Admission Collection</h1>
-<p>All subjects, notes, PDFs, model tests, previous years solved in one place. Ready-to-use portal for serious students.</p>
-<a class="btn" href="#cards">Explore Now</a>
-</section>
-
-<section class="section" id="cards">
-<h2>All PDFs</h2>
-<div class="cards">
-<div class="card"><h3>Physics</h3><a href="pdfs/physics.pdf">Open PDF</a></div>
-<div class="card"><h3>Chemistry</h3><a href="pdfs/chemistry.pdf">Open PDF</a></div>
-<div class="card"><h3>Biology</h3><a href="pdfs/biology.pdf">Open PDF</a></div>
-<div class="card"><h3>Math</h3><a href="pdfs/math.pdf">Open PDF</a></div>
-<div class="card"><h3>GK</h3><a href="pdfs/gk.pdf">Open PDF</a></div>
-<div class="card"><h3>Notes</h3><a href="pdfs/notes.pdf">Open PDF</a></div>
-<div class="card"><h3>Model Test</h3><a href="pdfs/model_test.pdf">Open PDF</a></div>
-<div class="card"><h3>Previous Year</h3><a href="pdfs/previous.pdf">Open PDF</a></div>
-<div class="card"><h3>Full Library</h3><a href="pdfs/all_subjects.pdf">Open PDF</a></div>
-</div>
-</section>
-
+<!-- Login button inside section -->
 <section class="section" id="login">
 <h2>Secure Login Area</h2>
 <div class="lock"><span class="lock-icon">🔒</span></div>
 <div class="cards">
-<div class="card"><h3>Admin / Teacher</h3><a href="pdfs/login.pdf">Open PDF</a></div>
-<div class="card"><h3>Student Access</h3><a href="pdfs/login.pdf">Open PDF</a></div>
+  <div class="card"><h3>Login with Google</h3><a href="javascript:void(0)" onclick="googleLogin()">Sign in</a></div>
 </div>
 </section>
-
-<footer>
-Developed by <span>SHOHAN ISLAM (HSC-25)</span> © 2025
-</footer>
-
-</body>
-</html>
