@@ -35,8 +35,8 @@ nav ul li a:hover{color:#47e0c5;}
 .btn{margin-top:35px;padding:15px 40px;border-radius:35px;font-size:18px;font-weight:600;border:none;cursor:pointer;background:#00ffd7;color:#000;text-decoration:none;transition:0.3s;}
 .btn:hover{transform:scale(1.06);}
 
-/* Section */
-.section{padding:120px 70px;background:#05080f;}
+/* Sections */
+.section{padding:100px 70px;background:#05080f;}
 .section h2{text-align:center;margin-bottom:60px;font-size:40px;font-weight:700;letter-spacing:1px;color:#47e0c5;}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;}
 .card{background:var(--glass);backdrop-filter:blur(15px);padding:35px;border-radius:25px;transition:0.3s;cursor:pointer;border:1px solid rgba(255,255,255,0.1);}
@@ -46,11 +46,16 @@ nav ul li a:hover{color:#47e0c5;}
 .card a{display:block;margin-top:15px;padding:14px;border-radius:12px;text-decoration:none;color:white;font-size:17px;background:rgba(255,255,255,0.15);transition:.3s;backdrop-filter:blur(10px);}
 .card a:hover{transform:scale(1.05);background:rgba(255,255,255,0.3);}
 
+/* Login modal */
+.lock{display:flex;justify-content:center;margin-top:50px;}
+.lock-icon{font-size:50px;color:#ff4d9b;animation:lockBounce 1.5s infinite;}
+@keyframes lockBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
+
 /* Footer */
-footer{margin-top:120px;padding:25px;text-align:center;font-size:15px;background:#000;}
+footer{margin-top:80px;padding:25px;text-align:center;font-size:15px;background:#000;}
 footer span{color:#47e0c5;font-weight:600;letter-spacing:1px;}
 
-@media(max-width:600px){.hero h1{font-size:36px;}nav h2{font-size:20px;}}
+@media(max-width:600px){.hero h1{font-size:36px;}nav h2{font-size:20px;}.hero{padding-left:20px;}.section{padding:60px 20px;}}
 </style>
 </head>
 
@@ -76,26 +81,21 @@ footer span{color:#47e0c5;font-weight:600;letter-spacing:1px;}
 <section class="section" id="cards">
 <h2>All PDFs</h2>
 <div class="cards">
-<!-- Example PDF Cards, tumi PDF upload korle replace korte parba -->
 <div class="card"><h3>Physics</h3><a href="pdfs/physics.pdf">Open PDF</a></div>
 <div class="card"><h3>Chemistry</h3><a href="pdfs/chemistry.pdf">Open PDF</a></div>
 <div class="card"><h3>Biology</h3><a href="pdfs/biology.pdf">Open PDF</a></div>
 <div class="card"><h3>Math</h3><a href="pdfs/math.pdf">Open PDF</a></div>
 <div class="card"><h3>GK</h3><a href="pdfs/gk.pdf">Open PDF</a></div>
-<div class="card"><h3>Biology Notes</h3><a href="pdfs/biology_notes.pdf">Open PDF</a></div>
-<div class="card"><h3>Chemistry Notes</h3><a href="pdfs/chemistry_notes.pdf">Open PDF</a></div>
-<div class="card"><h3>Physics Notes</h3><a href="pdfs/physics_notes.pdf">Open PDF</a></div>
-<div class="card"><h3>Model Test 1</h3><a href="pdfs/model_test1.pdf">Open PDF</a></div>
-<div class="card"><h3>Model Test 2</h3><a href="pdfs/model_test2.pdf">Open PDF</a></div>
-<div class="card"><h3>Previous 2010-2015</h3><a href="pdfs/prev_2010_2015.pdf">Open PDF</a></div>
-<div class="card"><h3>Previous 2016-2020</h3><a href="pdfs/prev_2016_2020.pdf">Open PDF</a></div>
-<div class="card"><h3>Previous 2021-2024</h3><a href="pdfs/prev_2021_2024.pdf">Open PDF</a></div>
-<div class="card"><h3>All PDFs Library</h3><a href="pdfs/all_subjects.pdf">Open PDF</a></div>
+<div class="card"><h3>Notes</h3><a href="pdfs/notes.pdf">Open PDF</a></div>
+<div class="card"><h3>Model Test</h3><a href="pdfs/model_test.pdf">Open PDF</a></div>
+<div class="card"><h3>Previous Year</h3><a href="pdfs/previous.pdf">Open PDF</a></div>
+<div class="card"><h3>Full Library</h3><a href="pdfs/all_subjects.pdf">Open PDF</a></div>
 </div>
 </section>
 
 <section class="section" id="login">
 <h2>Secure Login Area</h2>
+<div class="lock"><span class="lock-icon">🔒</span></div>
 <div class="cards">
 <div class="card"><h3>Admin / Teacher</h3><a href="pdfs/login.pdf">Open PDF</a></div>
 <div class="card"><h3>Student Access</h3><a href="pdfs/login.pdf">Open PDF</a></div>
